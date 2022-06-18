@@ -14,13 +14,20 @@ const BloodTestList = ({ bloodTests }: { bloodTests: BloodTest[] }) => (
 
 function BloodTestView() {
   const store = useBloodTestStoreImplementation();
-  const { bloodTests } = useBloodTestController(store);
-  // return bloodTests.map((bloodTest) => (
-  //   <div
-  //     key={bloodTest.idNumber}
-  //   >{`${bloodTest.idNumber} - ${bloodTest.sugar}`}</div>
-  // ));
-  return <BloodTestList bloodTests={bloodTests} />;
+  const { bloodTests, addBloodTest } = useBloodTestController(store);
+  return (
+    <>
+      <BloodTestList bloodTests={bloodTests} />
+      <button
+        id="button-blood-test-validate-blood"
+        onClick={() =>
+          addBloodTest({ idNumber: "1002", oxygen: 2, fat: 2, sugar: 2 })
+        }
+      >
+        Validar muestra de sangre
+      </button>
+    </>
+  );
 }
 
 export default BloodTestView;
