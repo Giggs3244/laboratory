@@ -1,4 +1,4 @@
-import "./Card.css"
+import "./Card.css";
 
 interface CardProps {
   id: string;
@@ -10,7 +10,11 @@ interface CardProps {
 const Card = ({ id, title, subtitle, children }: CardProps) => {
   return (
     <article id={id} className="card">
-      <h2 id={`${id}-card-heading`} className="card__heading">
+      <h2
+        id={`${id}-card-heading`}
+        data-testid={`${id}-card-heading`}
+        className="card__heading"
+      >
         {title}
       </h2>
       <p id={`${id}-card-subheading`} className="card__subheading">
