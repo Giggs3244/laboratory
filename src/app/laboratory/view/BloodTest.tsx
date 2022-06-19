@@ -59,7 +59,6 @@ function BloodTestView() {
 
   const submitForm = () => {
     // validateInput(bloodTestForm);
-    console.log('holii:#');
     addBloodTest(bloodTestForm);
   };
 

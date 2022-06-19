@@ -24,12 +24,6 @@ const Input = ({
 
   const handleOnChange = (event: React.FormEvent<HTMLInputElement>) => {
     const valueInput = event.currentTarget.value;
-    console.log(
-      "valueInput: ",
-      valueInput,
-      typeof valueInput,
-      event.currentTarget.validity.valid
-    );
     if (event.currentTarget.validity.valid) {
       onChange(valueInput);
     }
