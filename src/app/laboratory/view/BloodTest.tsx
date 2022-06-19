@@ -6,9 +6,9 @@ import validateInput, {
 import { useBloodTestController } from "../controller/useBloodTestController";
 import { useBloodTestStoreImplementation } from "../data/BloodTestStoreImpl";
 import { BloodTest } from "../domain/BloodTestEntity";
+import "./BloodTest.css";
 import BloodTestForm from "./BloodTestForm";
 import ErrorMessage from "./ErrorMessage";
-import "./BloodTest.css";
 
 function BloodTestView() {
   const store = useBloodTestStoreImplementation();
@@ -25,6 +25,7 @@ function BloodTestView() {
     oxygen: 0,
     fat: 0,
     sugar: 0,
+    risk: undefined,
   });
 
   const onChangeForm = (inputName: KeyInputValidations, value: string) => {
