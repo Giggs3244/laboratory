@@ -12,9 +12,9 @@ function useBloodTestController(store: BloodTestStore) {
   );
 
   return {
-    bloodTests: store.bloodTests,
     addBloodTest,
   };
 }
 
 export { useBloodTestController };
+
