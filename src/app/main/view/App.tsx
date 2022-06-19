@@ -1,5 +1,6 @@
 import { Provider } from "react-redux";
 import BloodTestView from "../../laboratory/view/BloodTest";
+import BloodTestList from "../../laboratory/view/BloodTestList";
 import Card from "../../shared/components/Card";
 import { store } from "../data/appStore";
 import "./App.css";
@@ -19,10 +20,10 @@ function AppProvider() {
           </Card>
           <Card
             id="blood-test-filter-tests"
-            title="Filtrar muestra de sangre realizadas"
+            title="Filtrar muestras de sangre realizadas"
             subtitle="Diligencie el número de identificación para consultar el nivel de riesgo de un paciente"
           >
-            {/* <BloodTestList /> */}
+            <BloodTestList />
           </Card>
         </section>
       </main>
