@@ -1,3 +1,5 @@
+import "./ErrorMessage.css";
+
 interface ErrorInput {
   isValid: boolean;
   inputName: string;
@@ -10,10 +12,10 @@ interface ErrorMessage {
 
 const ErrorMessage = ({ errorsInput }: ErrorMessage) => {
   return (
-    <article id="error-message">
+    <article className="error-message" id="error-message">
       {errorsInput.map(({ isValid, inputName, errorText }) =>
         isValid ? null : (
-          <p key={`error-input-${inputName}`} id={`error-input-${inputName}`}>
+          <p key={`error-input-${inputName}`} id={`error-input-${inputName}`} className="error-message__text">
             {errorText}
           </p>
         )
