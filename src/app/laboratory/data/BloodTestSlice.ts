@@ -6,7 +6,7 @@ export interface BloodTestState {
 }
 
 const initialState: BloodTestState = {
-  bloodTests: [{ sugar: 5, fat: 5, oxygen: 5, idNumber: '1001' }]
+  bloodTests: [{ sugar: 75, fat: 88.7, oxygen: 50, idNumber: '1020789456', risk: "HIGH" }]
 }
 
 const bloodTestSlice = createSlice({
