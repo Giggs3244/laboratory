@@ -56,17 +56,17 @@ const BloodTestList = () => {
             </tr>
           </thead>
           <tbody>
-            {localBloodTests?.map(({ idNumber, sugar, fat, oxygen }, index) => (
-              <tr>
-                <td key={`${idNumber}-${index}-idNumber`}>{idNumber}</td>
-                <td key={`${idNumber}-${index}-sugar`}>{sugar}</td>
-                <td key={`${idNumber}-${index}-fat`}>{fat}</td>
-                <td key={`${idNumber}-${index}-oxygen`}>{oxygen}</td>
-                {/* <td
-                  key={`${idNumber}-${index}-risk`}
-                >{risk}</td> */}
-              </tr>
-            ))}
+            {localBloodTests?.map(
+              ({ idNumber, sugar, fat, oxygen, risk }, index) => (
+                <tr>
+                  <td key={`${idNumber}-${index}-idNumber`}>{idNumber}</td>
+                  <td key={`${idNumber}-${index}-sugar`}>{sugar}</td>
+                  <td key={`${idNumber}-${index}-fat`}>{fat}</td>
+                  <td key={`${idNumber}-${index}-oxygen`}>{oxygen}</td>
+                  <td key={`${idNumber}-${index}-risk`}>{risk}</td>
+                </tr>
+              )
+            )}
           </tbody>
         </table>
       </div>
