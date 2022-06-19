@@ -3,7 +3,7 @@ interface ValidatedInput {
   hasError: boolean;
 }
 
-const ERROR_MESSAGES_INPUT_NAME = {
+export const ERROR_MESSAGES_INPUT_NAME = {
   idNumber: () => `El número de identificación debe ser numérico.`,
   fat: (fat: string) =>
     `El porcentaje de grasa permite los siguientes formatos: 100, 99.5, 0.3, se recibio: (${fat}).`,
