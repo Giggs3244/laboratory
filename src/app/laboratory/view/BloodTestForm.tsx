@@ -28,8 +28,19 @@ const BloodTestForm = ({ state, onChangeForm }: BloodTestForm) => {
       <div className="blood-test-form__input">
         <Input
           id="blood-test"
+          name="sugar"
+          pattern="[0-9]{1,3}\.{0,1}[0-9]{0,1}"
+          value={state.sugar}
+          labelText="Porcentaje de azúcar"
+          maxLength={4}
+          onChange={(value) => onChange("sugar", value)}
+        />
+      </div>
+      <div className="blood-test-form__input">
+        <Input
+          id="blood-test"
           name="fat"
-          pattern="[0-9]{1,3}\.{0,1}[0-9]{1}"
+          pattern="[0-9]{1,3}\.{0,1}[0-9]{0,1}"
           value={state.fat}
           labelText="Porcentaje de grasa"
           maxLength={4}
@@ -45,17 +56,6 @@ const BloodTestForm = ({ state, onChangeForm }: BloodTestForm) => {
           labelText="Porcentaje de oxígeno"
           maxLength={4}
           onChange={(value) => onChange("oxygen", value)}
-        />
-      </div>
-      <div className="blood-test-form__input">
-        <Input
-          id="blood-test"
-          name="sugar"
-          pattern="[0-9]{1,3}\.{0,1}[0-9]{0,1}"
-          value={state.sugar}
-          labelText="Porcentaje de azúcar"
-          maxLength={4}
-          onChange={(value) => onChange("sugar", value)}
         />
       </div>
     </form>
