@@ -45,9 +45,6 @@ const BloodTestList = () => {
         />
       </div>
       <div className="bloodtest-list__content">
-        <h3 className="bloodtest-list__heading">
-          Muestras de sangre realizadas
-        </h3>
         <table>
           <thead>
             <tr>
