@@ -1,31 +1,79 @@
+import { useState } from "react";
+import Button from "../../shared/components/Button";
+import validateInput, {
+  KeyInputValidations
+} from "../../shared/utils/ValidateInput";
 import { useBloodTestController } from "../controller/useBloodTestController";
 import { useBloodTestStoreImplementation } from "../data/BloodTestStoreImpl";
 import { BloodTest } from "../domain/BloodTestEntity";
-
-const BloodTestList = ({ bloodTests }: { bloodTests: BloodTest[] }) => (
-  <>
-    {bloodTests.map((bloodTest) => (
-      <div
-        key={bloodTest.idNumber}
-      >{`${bloodTest.idNumber} - ${bloodTest.sugar}`}</div>
-    ))}
-  </>
-);
+import BloodTestForm from "./BloodTestForm";
+import ErrorMessage from "./ErrorMessage";
+import "./BloodTest.css";
 
 function BloodTestView() {
   const store = useBloodTestStoreImplementation();
-  const { bloodTests, addBloodTest } = useBloodTestController(store);
+  const { addBloodTest } = useBloodTestController(store);
+  const [errorsInput, setErrorsInput] = useState([
+    {
+      isValid: false,
+      inputName: "idNumber",
+      errorText: "",
+    },
+  ]);
+  const [bloodTestForm, setBloodTestForm] = useState<BloodTest>({
+    idNumber: "",
+    oxygen: 0,
+    fat: 0,
+    sugar: 0,
+  });
+
+  const onChangeForm = (inputName: KeyInputValidations, value: string) => {
+    const { hasError, errorText } = validateInput(inputName, value);
+
+    setErrorsInput((prevState) => {
+      const errors = prevState.slice();
+
+      const indexInputName = errors.findIndex(
+        (error) => error.inputName === inputName
+      );
+
+      const errorInput = {
+        isValid: !hasError,
+        inputName,
+        errorText,
+      };
+
+      if (indexInputName === -1) {
+        errors.push(errorInput);
+      } else {
+        errors[indexInputName] = errorInput;
+      }
+
+      return errors;
+    });
+    setBloodTestForm((prevState) => ({
+      ...prevState,
+      [inputName]: value === "" ? 0 : value,
+    }));
+  };
+
+  const submitForm = () => {
+    // validateInput(bloodTestForm);
+    console.log('holii:#');
+    addBloodTest(bloodTestForm);
+  };
+
   return (
     <>
-      <BloodTestList bloodTests={bloodTests} />
-      <button
+      <BloodTestForm state={bloodTestForm} onChangeForm={onChangeForm} />
+      <Button
         id="button-blood-test-validate-blood"
-        onClick={() =>
-          addBloodTest({ idNumber: "1002", oxygen: 2, fat: 2, sugar: 2 })
-        }
-      >
-        Validar muestra de sangre
-      </button>
+        className="button-blood-test"
+        text="Validar muestra de sangre"
+        isDisabled={errorsInput.filter((error) => !error.isValid).length > 0}
+        onClick={submitForm}
+      />
+      <ErrorMessage errorsInput={errorsInput} />
     </>
   );
 }
