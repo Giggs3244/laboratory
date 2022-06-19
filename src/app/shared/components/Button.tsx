@@ -4,7 +4,7 @@ interface ButtonProps {
   id: string;
   onClick: () => void;
   text: string;
-  className: string;
+  className?: string;
   isDisabled: boolean;
 }
 
