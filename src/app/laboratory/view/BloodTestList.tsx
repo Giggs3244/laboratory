@@ -39,8 +39,7 @@ const BloodTestList = () => {
         />
         <Button
           id="button-blood-test-search"
-          // className="button-blood-test"
-          text="Validar muestra de sangre"
+          text="Filtrar muestra de sangre"
           isDisabled={!searchTest}
           onClick={handleSearch}
         />
