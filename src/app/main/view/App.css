@@ -16,3 +16,9 @@
   gap: 24px;
   margin: 0 auto;
 }
+
+.laboratory__dogs {
+  color: #2483d6;
+  text-align: center;
+  margin: 24px 0;
+}

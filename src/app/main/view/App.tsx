@@ -1,4 +1,5 @@
 import { Provider } from "react-redux";
+import DogsList from "../../dogs/view/DogsList";
 import BloodTestView from "../../laboratory/view/BloodTest";
 import BloodTestList from "../../laboratory/view/BloodTestList";
 import Card from "../../shared/components/Card";
@@ -26,6 +27,8 @@ function AppProvider() {
             <BloodTestList />
           </Card>
         </section>
+        <h2 className="laboratory__dogs">Dogs</h2>
+        <DogsList />
       </main>
     </Provider>
   );
