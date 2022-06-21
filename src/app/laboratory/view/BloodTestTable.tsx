@@ -15,20 +15,12 @@ const BloodTestTable = ({ bloodTests }: { bloodTests: BloodTest[] }) => {
       </thead>
       <tbody>
         {bloodTests?.map(({ idNumber, sugar, fat, oxygen, risk }, index) => (
-          <tr>
-            <td align="center" key={`${idNumber}-${index}-idNumber`}>
-              {idNumber}
-            </td>
-            <td align="left" key={`${idNumber}-${index}-sugar`}>
-              {sugar}%
-            </td>
-            <td align="left" key={`${idNumber}-${index}-fat`}>
-              {fat}%
-            </td>
-            <td align="left" key={`${idNumber}-${index}-oxygen`}>
-              {oxygen}%
-            </td>
-            <td align="center" key={`${idNumber}-${index}-risk`}>
+          <tr key={`row-blood-test-${idNumber}-${index}`}>
+            <td align="center">{idNumber}</td>
+            <td align="left">{sugar}%</td>
+            <td align="left">{fat}%</td>
+            <td align="left">{oxygen}%</td>
+            <td align="center">
               <TranslateRisk risk={risk} />
             </td>
           </tr>
