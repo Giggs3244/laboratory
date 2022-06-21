@@ -22,7 +22,7 @@ export const DogsList = () => {
   if (dogStatus === "loading") {
     content = <p>Cargando...</p>;
   } else if (dogStatus === "succeeded") {
-    content = dogs.map((dog) => <Dog dogImg={dog} />);
+    content = dogs.map((dog) => <Dog key={dog} dogImg={dog} />);
   } else if (dogStatus === "failed") {
     content = <div>{error}</div>;
   }
